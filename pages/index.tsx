@@ -1,5 +1,5 @@
 import {
-  Container,
+  Center,
   SimpleGrid,
   Image,
   Flex,
@@ -30,7 +30,7 @@ export default function Home({ product }: HomeProps) {
           content="Grannytalks is one of the best terror stories blog on the Internet"
         />
       </Head>
-      <Container maxW={"5xl"} py={"10rem"}>
+      <Center maxW={"5xl"} flex={1} alignSelf={"center"}>
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           spacing={10}
@@ -66,7 +66,7 @@ export default function Home({ product }: HomeProps) {
             />
           </Flex>
         </SimpleGrid>
-      </Container>
+      </Center>
     </>
   );
 }

@@ -17,12 +17,7 @@ export default function Header() {
 
   return (
     <>
-      <Box
-        bg={useColorModeValue("yellow.200", "yellow.800")}
-        px={4}
-        position={"fixed"}
-        w={"100%"}
-      >
+      <Box bg={useColorModeValue("yellow.200", "yellow.800")} px={4} w={"100%"}>
         <Flex
           h={16}
           alignItems={"center"}

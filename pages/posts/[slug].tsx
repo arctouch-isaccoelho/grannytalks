@@ -27,7 +27,7 @@ export default function Post(item: PostProps) {
         <title>{item.title.toString()} — grannytalks</title>
         <meta name="description" content="Test" />
       </Head>
-      <Container maxW={"4xl"} py={"6rem"}>
+      <Container maxW={"4xl"} py={"2rem"} flex={1}>
         <Heading
           as="h1"
           fontFamily={"Nanum Pen Script, cursive"}

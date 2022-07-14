@@ -37,7 +37,7 @@ export default function Posts({ posts }: PostsProps) {
           content="Exclusive terror stories coming from the granny 👵, don't waste your time. Subscribe now!"
         />
       </Head>
-      <Container maxW={"2xl"} py={"8rem"}>
+      <Container flex={1} py={"6rem"} maxW={"2xl"}>
         <Stack
           spacing={4}
           divider={

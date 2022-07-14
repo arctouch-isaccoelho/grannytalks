@@ -1,6 +1,8 @@
 import { Flex, Heading, Image, Box, useColorModeValue } from "@chakra-ui/react";
 import { PrismicRichText } from "@prismicio/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type PrismicImage = {
   dimensions: {};
@@ -17,6 +19,15 @@ interface ItemProps {
 }
 
 export function ListItem(item: ItemProps) {
+  const { data: session } = useSession();
+  const [link, setLink] = useState(`/posts/preview/${item.id}`);
+
+  useEffect(() => {
+    if (session?.activeSubscription) {
+      setLink(`/posts/${item.id}`);
+    }
+  }, [session, item]);
+
   return (
     <Flex
       direction="row"
@@ -45,7 +56,7 @@ export function ListItem(item: ItemProps) {
               textShadow: "1px 1px black",
             }}
           >
-            <Link href={`/posts/preview/${item.id}`}>{item.title}</Link>
+            <Link href={link}>{item.title}</Link>
           </Heading>
           <PrismicRichText field={item.heading} />
         </Flex>
