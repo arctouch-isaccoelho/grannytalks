@@ -47,9 +47,10 @@ export default function Post(item: PostProps) {
       </Head>
       <Container
         maxW={"4xl"}
-        py={"6rem"}
+        py={"2rem"}
         background={`linear-gradient(${color}, transparent)`}
         backgroundClip={"text"}
+        flex={1}
       >
         <Heading
           as="h1"
