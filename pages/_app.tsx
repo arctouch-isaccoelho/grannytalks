@@ -14,39 +14,33 @@ import { SessionProvider } from "next-auth/react";
 const theme = extendTheme({
   styles: {
     global: (props: StyleProps) => ({
-      "*": {
-        margin: 0,
-        boxSizing: "border-box",
-      },
       "html, body": {
         background: mode("gray.50", "gray.800")(props),
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
       },
     }),
   },
+  useSystemColorMode: false,
 });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <ChakraProvider theme={theme}>
-        <PrismicProvider>
-          <Container
-            display={"flex"}
-            flexDirection={"column"}
-            minH={"100vh"}
-            minW={"100%"}
-            p={0}
-          >
+    <ChakraProvider theme={theme}>
+      <PrismicProvider>
+        <Container
+          display={"flex"}
+          flexDirection={"column"}
+          minH={"100vh"}
+          minW={"100%"}
+          p={0}
+        >
+          <SessionProvider session={session}>
             <Header />
             <Component {...pageProps} />
             <Footer />
-          </Container>
-        </PrismicProvider>
-      </ChakraProvider>
-    </SessionProvider>
+          </SessionProvider>
+        </Container>
+      </PrismicProvider>
+    </ChakraProvider>
   );
 }
 
