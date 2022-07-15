@@ -18,7 +18,7 @@ Create a file named `.env.local` and add the variables described in the `.env.sa
 Although this file is listed in the `.gitignore` file make sure to `NOT` push it to GitHub.
 And **remember** the file is called `.env.local` following [Next.js documentation](https://nextjs.org/docs/basic-features/environment-variables)
 
-#### More details on environment variables ℹ️
+#### More details on environment variables (toggle list) ℹ️
 
 <details>
   <summary>1.1 NEXTAUTH_URL</summary>
@@ -47,13 +47,13 @@ And **remember** the file is called `.env.local` following [Next.js documentatio
 <details>
   <summary>1.5 FAUNADB_KEY</summary>
   
-  ##### FaunaDB is being used on this project as a key-value, chosen because of its modern cloud API and native GraphQL, known as FQL. To get this token create a database on [FaunaDB](https://dashboard.fauna.com/) and then, go to Security -> Keys and generate a new key.
+  ##### FaunaDB is being used on this project as a key-value storage, chosen because of its modern cloud API and native GraphQL, known as FQL. This token you can get by creating a database on [FaunaDB](https://dashboard.fauna.com/) and then, go to Security -> Keys and generate a new key.
 </details>
 
 <details>
   <summary>1.6 NEXT_PUBLIC_STRIPE_PUBLIC_KEY</summary>
   
-  ##### This particular environment variable name can be described accordingly to [Next.js documentation](https://nextjs.org/docs/basic-features/environment-variables). Variables starting with `NEXT_PUBLIC_` are exposed to the browser. You get this from Stripe, which is currently being used as our payment processor. To get this variable, create an account and an application on [Stripe](https://stripe.com/en-br), then, head to [Developers APIs page](https://dashboard.stripe.com/apikeys), there you can find _Publishable key_
+  ##### This particular environment variable name can be described accordingly to [Next.js documentation](https://nextjs.org/docs/basic-features/environment-variables). Variables starting with `NEXT_PUBLIC_` are exposed to the browser. You get this from Stripe, which is currently being used as our payment processor. To get this variable, create an application on [Stripe](https://stripe.com/en-br), then, head to [Developers APIs page](https://dashboard.stripe.com/apikeys), there you can find _Publishable key_
 </details>
 
 <details>
@@ -94,9 +94,9 @@ yarn run dev
 
 #### References:
 
-[https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started) - Framework commonly used for SSR React and SSG
-[https://chakra-ui.com/getting-started/nextjs-guide](https://chakra-ui.com/getting-started/nextjs-guide) - Design system for React
-[https://prismic.io/docs/technologies/nextjs](https://prismic.io/docs/technologies/nextjs) - Headless CMS
-[https://next-auth.js.org/](https://next-auth.js.org/) - Authentication for Next.js
-[https://stripe.com/en-br](https://stripe.com/en-br) - Payment processor
-[https://fauna.com/](https://fauna.com/) - Key-value storage used to store users and their subscriptions
+- [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started) - Framework commonly used for SSR React and SSG
+- [https://chakra-ui.com/getting-started/nextjs-guide](https://chakra-ui.com/getting-started/nextjs-guide) - Design system for React
+- [https://prismic.io/docs/technologies/nextjs](https://prismic.io/docs/technologies/nextjs) - Headless CMS
+- [https://next-auth.js.org/](https://next-auth.js.org/) - Authentication for Next.js
+- [https://stripe.com/en-br](https://stripe.com/en-br) - Payment processor
+- [https://fauna.com/](https://fauna.com/) - Key-value storage used to store users and their subscriptions
