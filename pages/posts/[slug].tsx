@@ -15,7 +15,13 @@ type PrismicImage = {
 type PostProps = {
   id: string;
   title: string;
-  heading: [];
+  heading: [
+    {
+      spans: [];
+      text: string;
+      type: string;
+    }
+  ];
   body: [];
   image: PrismicImage;
 };
@@ -25,7 +31,7 @@ export default function Post(item: PostProps) {
     <>
       <Head>
         <title>{item.title.toString()} — grannytalks</title>
-        <meta name="description" content="Test" />
+        <meta name="description" content={item.heading[0]?.text} />
       </Head>
       <Container maxW={"4xl"} py={"2rem"} flex={1}>
         <Heading
