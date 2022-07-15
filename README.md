@@ -10,11 +10,11 @@ This application is basically a simple blog which requires the user to be subscr
 
 To run the application locally you'll need:
 
-- `NodeJS v16.15`
+- `docker` or `NodeJS v16.15`
 
 ### 1. Environment variables ⚙️
 
-Create a file named `.env.local` and add the variables described in the `.env.sample` file.
+Create a file named `.env.local` and add the variables described in the `.env.example` file.
 Although this file is listed in the `.gitignore` file make sure to `NOT` push it to GitHub.
 And **remember** the file is called `.env.local` following [Next.js documentation](https://nextjs.org/docs/basic-features/environment-variables)
 
@@ -29,19 +29,19 @@ And **remember** the file is called `.env.local` following [Next.js documentatio
 <details>
   <summary>1.2 NEXTAUTH_SECRET</summary>
   
-  ##### As described in [NextAuth.js documentation](https://next-auth.js.org/configuration/options), it is used to encrypt the NextAuth.js JWT.
+  ##### As described in [NextAuth.js documentation](https://next-auth.js.org/configuration/options), it is used to encrypt the NextAuth.js JWT. You can choose to use a random generated string.
 </details>
 
 <details>
   <summary>1.3 GITHUB_ID</summary>
   
-  ##### The ID of your Github application, you need to create it to serve as a login provider for your application, you can create one [here](https://github.com/settings/developers) on `New OAuth App` button.
+  ##### The ID of your Github application, you need to create it to serve as a login provider for your application, create one [here](https://github.com/settings/developers) on `New OAuth App` button.
 </details>
 
 <details>
   <summary>1.4 GITHUB_SECRET</summary>
   
-  ##### This token you can get accessing your application home on Github and creating a new client secret.
+  ##### This token you can get accessing your application home on Github, then, create a new client secret.
 </details>
 
 <details>
@@ -80,6 +80,26 @@ And **remember** the file is called `.env.local` following [Next.js documentatio
   ##### This application listens for the webhook events coming from Stripe, a key is being used to check its authenticity, you can get this following the instructions from [Stripe events](https://dashboard.stripe.com/webhooks/create?endpoint_location=local) 
 </details>
 
+### 2.1 Run with docker ⚙️
+
+Running this application with Docker would be the easiest solution, if you choose to, perform the following steps:
+
+#### To build docker image
+
+```console
+docker build . --tag grannytalks --file Dockerfile
+```
+
+#### To start docker container
+
+```console
+docker run -p 3000:3000 grannytalks
+```
+
+### 2.2 Run without container (direct) ⚙️
+
+First make sure that you are running `NodeJS v16.15`, execute `node --version` and check for it. If confirmed, do the following steps
+
 #### To install package dependencies
 
 ```console
@@ -91,6 +111,8 @@ yarn && yarn global add typescript
 ```console
 yarn run dev
 ```
+
+**REMINDER!** As this project uses PrismicCMS to manage the content, you need to use what is called `slice machine` if you want to change the `Post` model, read more about it [here](https://prismic.io/docs/technologies/model-content-nextjs).
 
 #### References:
 
