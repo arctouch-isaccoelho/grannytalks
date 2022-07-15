@@ -27,7 +27,7 @@ export default function Home({ product }: HomeProps) {
         <title>Home — grannytalks</title>
         <meta
           name="description"
-          content="Grannytalks is one of the best terror stories blog on the Internet"
+          content="Grannytalks is one of the best terror stories blog on the Internet! Make yourself comfortable, you are going to be terrified!"
         />
       </Head>
       <Center maxW={"5xl"} flex={1} alignSelf={"center"}>
