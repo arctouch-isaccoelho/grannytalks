@@ -1,15 +1,23 @@
 import { Button, Image, Spinner } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { FaGithub, FaSignOutAlt } from "react-icons/fa";
 
 export function SignInButton() {
-  const { data: session } = useSession();
-  const [loading, setLoading] = useState(true);
+  const { data: session, status } = useSession();
 
-  useEffect(() => {
-    if (typeof session !== "undefined") setLoading(false);
-  }, [session]);
+  if (status === "loading") {
+    return <Spinner size="sm" alignContent={"center"} />;
+  }
+
+  function handleSignIn(event: React.MouseEvent<HTMLButtonElement>) {
+    event.currentTarget.disabled = true;
+    signIn("github");
+  }
+
+  function handleSignOut(event: React.MouseEvent<HTMLButtonElement>) {
+    event.currentTarget.disabled = true;
+    signOut();
+  }
 
   return session ? (
     <Button
@@ -22,10 +30,11 @@ export function SignInButton() {
           alt={"avatar image"}
         />
       }
-      rightIcon={<FaSignOutAlt onClick={() => signOut()} />}
+      rightIcon={<FaSignOutAlt />}
       colorScheme="yellow"
       variant="outline"
       rounded={"full"}
+      onClick={(event) => handleSignOut(event)}
     >
       {session.user?.name}
     </Button>
@@ -35,13 +44,7 @@ export function SignInButton() {
       colorScheme="yellow"
       variant="outline"
       rounded={"full"}
-      onClick={() => {
-        setLoading(true);
-        signIn("github");
-      }}
-      rightIcon={
-        loading ? <Spinner size="xs" alignContent={"center"} ml={1} /> : <></>
-      }
+      onClick={(event) => handleSignIn(event)}
     >
       Login with Github
     </Button>
